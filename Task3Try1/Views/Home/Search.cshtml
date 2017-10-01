@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+@model List<Task3Try1.Models.Chip>
+
+<div>
+    <br/>
+    <br/>
+    <table>
+        <tr>
+            <th>Name/link</th>
+            <th>Picture</th>
+            <th>Availability</th>
+            <th>Price</th>
+        </tr>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>@Html.ActionLink(@Model[i].Name, "RedirectTo", "Home", new {url = Model[i].Url}, null)</td>
+                <td><img src="@Model[i].PictureUrl"/></td>
+                <td>@Model[i].Available</td>
+                <td>@Model[i].Price</td>
+            </tr>
+        }
+    </table>
+</div>
+
